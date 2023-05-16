@@ -19,7 +19,7 @@ const schema: ZodType<FormValues> = z
         .max(30, 'Last name must be less than 30 characters'),
       email: z.string().email('Please enter a valid email address'),
       age: z
-        .number()
+        .number().int("Age must be a whole number")
         .positive('Age must be a positive number')
         .min(8, 'You must be at least 8 years old')
         .max(150, 'You must be less than 150 years old'),

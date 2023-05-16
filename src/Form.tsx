@@ -57,7 +57,9 @@ const Form = () => {
           type="text"
           id="age"
           placeholder="Age ..."
-          {...register('age', { valueAsNumber: true })}
+          {...register('age', {
+            setValueAs: (age) => (age === '' ? undefined : parseInt(age)),
+          })}
         />
         {errors.age && <p>{errors.age.message}</p>}
       </label>
